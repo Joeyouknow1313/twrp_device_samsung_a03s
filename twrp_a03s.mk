@@ -19,17 +19,16 @@ DEVICE_PATH := device/samsung/a03s
 PRODUCT_RELEASE_NAME := a03s
 
 # Inherit from common AOSP config
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/embedded.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit some common TWRP stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit device configuration
-$(call inherit-product, $(DEVICE_PATH)/device.mk)
+$(call inherit-product, device/samsung/a03s/device.mk)
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/recovery/root,recovery/root)
 
@@ -37,6 +36,6 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/recovery/ro
 PRODUCT_NAME := twrp_a03s
 PRODUCT_DEVICE := a03s
 PRODUCT_MODEL := SM-A035F
-PRODUCT_BRAND := samsung
+PRODUCT_BRAND := Galaxy A03s
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
