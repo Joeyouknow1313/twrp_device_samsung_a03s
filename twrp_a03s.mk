@@ -36,6 +36,6 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/recovery/ro
 PRODUCT_NAME := twrp_a03s
 PRODUCT_DEVICE := a03s
 PRODUCT_MODEL := SM-A035F
-PRODUCT_BRAND := Galaxy A03s
+PRODUCT_BRAND := a03s
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
